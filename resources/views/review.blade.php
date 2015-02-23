@@ -41,6 +41,35 @@
 				</tr>			
 			<?php endforeach ?>
 		</table>
+
+		<br/>
+
+		<h3>Reviews</h3>
+
+		<table class="table">
+
+			<?php foreach ($reviews as $review) : ?>
+
+				<tr>
+					<th>Title</th>
+					<td><?php echo $review->title ?></td>
+				</tr>
+				<tr>
+					<th>Rating</th>				
+					<td><?php echo $review->rating ?></td>
+				</tr>
+				<tr>
+					<th>Description</th>
+					<td><?php echo $review->description ?></td>
+				</tr>
+				<tr>
+					<td colspan="2"></td>
+				</tr>
+
+			<?php endforeach ?>
+
+
+		</table>	
 	</div>
 	<div class="container col-md-6">
 		@foreach ($errors->all() as $errorMessage)
@@ -82,35 +111,6 @@
 			<div class="form-group"><input class="btn btn-primary btn-block" type="submit" value="search"></div>
 		</form>
 	</div>
-	<div class="container col-md-6">
-			<h3>Reviews</h3>
 
-			<table class="table">
-
-			<?php foreach ($reviews as $review) : ?>
-
-				<tr>
-					<th>Title</th>
-					<td><?php echo $review->title ?></td>
-				</tr>
-				<tr>
-					<th>Rating</th>				
-					<td><?php echo $review->rating ?></td>
-				</tr>
-				<tr>
-					<th>Description</th>
-					<td><?php echo $review->description ?></td>
-				</tr>
-				<tr>
-					<td colspan="2"></td>
-				</tr>
-
-			<?php endforeach ?>
-
-
-			</table>	
-
-		</table>
-	</div>
 </body>
 </html>
