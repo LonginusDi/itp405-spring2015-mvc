@@ -20,6 +20,7 @@
 				<th>Sound</th>
 				<th>Format</th>
 				<th>Release Date</th>
+				<th>Review</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -32,6 +33,8 @@
 				<td><?php echo $dvd->sound_name ?></td>
 				<td><?php echo $dvd->format_name ?></td>
 				<td><?php echo $dvd->release_date ?></td>
+				<td><a href="/dvds/<?php echo $dvd->id ?>">Review</a></td>
+
 			</tr>
 			<?php endforeach ?>	
 		</tbody>
