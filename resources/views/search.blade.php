@@ -1,10 +1,14 @@
+
 <!doctype html>
 <html>
 <head>
 	<title>DVD Search</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">  
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/simple-sidebar.css">  
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 	<div class="container col-md-6">
@@ -39,5 +43,22 @@
 			<div class="form-group"><input class="btn btn-primary btn-block" type="submit" value="search"></div>
 		</form>
 	</div>
+
+	<div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+            	<a href="#">
+                Genres
+            	</a>
+            </li>
+
+    		<?php foreach($genres as $genre) : ?>
+            <li>
+                <a href="/genres/<?php echo $genre->genre_name ?>/dvds"><?php echo $genre->genre_name ?></a>
+            </li>
+            <?php endforeach ?>
+        </ul>
+    </div>
+
 </body>
 </html>

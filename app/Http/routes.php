@@ -1,5 +1,11 @@
 <?php
 
+use App\Models\Label;
+use App\Models\Sound;
+use App\Models\Genre;
+use App\Models\Rating;
+use App\Models\Format;
+use App\Models\Dvd;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -17,6 +23,27 @@ Route::get('/dvds/search', 'DvdController@search');
 
 Route::get('/dvds', 'DvdController@results');
 
-Route::get('/dvds/{id}', 'DvdController@review');
-
 Route::post('/dvds/review', 'DvdController@createReview');
+
+// Route::get('/dvds/{id}', 'DvdController@review');
+
+Route::get('/dvds/create', 'DvdController@create');
+
+Route::post('/dvds', 'DvdController@createDvd');
+
+Route::get('/genres/{name}/dvds', function($name){
+
+	$genre = Genre::where('genre_name', '=', $name)->first()->pluck('id');
+
+	$dvds = Dvd::with('genre', 'rating', 'label')
+		->where('genre_id', '=', $genre)
+		// ->where('rating_id', '=', 'rating.id')
+		// ->where('label_id', '=', 'label.id')
+		->get();
+
+	return view('genre',[
+		'dvds' => $dvds,
+		'genre_name' => $name
+	]);
+
+});
