@@ -38,7 +38,38 @@
 				<tr>
 					<th>Release Date</th>
 					<td><?php echo $dvd->release_date ?></td>
-				</tr>			
+				</tr>
+
+				@if ($check === 1)
+				<tr>
+					<th>Critic Score</th>
+					<td><?php echo $details->ratings->critics_score; ?></td>
+				</tr>	
+				<tr>
+					<th>Audience Score</th>
+					<td><?php echo $details->ratings->audience_score; ?></td>
+				</tr>
+				<tr>
+					<th>Poster</th>
+					<td><img src="<?php echo $details->posters->thumbnail; ?>"></td>
+				</tr>	
+				<tr>
+					<th>Runtime</th>
+					<td><?php echo $details->runtime; ?></td>
+				</tr>
+				<tr>
+					<th>Abridged Cast</th>
+					<td>
+						@foreach ($details->abridged_cast as $cast)
+							<?php echo $cast->name; ?>:
+							@if (isset($cast->characters))
+								<?php echo array_values($cast->characters)[0]; ?>
+							@endif
+							<br />
+						@endforeach
+					</td>
+				</tr>
+				@endif
 			<?php endforeach ?>
 		</table>
 

@@ -11,7 +11,6 @@ use App\Models\Format;
 use App\Models\Dvd;
 
 
-
 class DvdController extends Controller {
 
 	public function search()
@@ -47,19 +46,19 @@ class DvdController extends Controller {
 		]);
 	}
 
-	public function review($id)
-	{
-		$dvds = (new DvdQuery())->getDetails($id);
-		$reviews = (new DvdQuery())->getReviews($id);
-		$review_ratings = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
+	// public function review($id)
+	// {
+	// 	$dvds = (new DvdQuery())->getDetails($id);
+	// 	$reviews = (new DvdQuery())->getReviews($id);
+	// 	$review_ratings = array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10');
 
-		return view('review', [
-			'id' => $id,
-			'dvds' => $dvds,
-			'review_ratings' => $review_ratings,
-			'reviews' => $reviews
-		]);
-	}
+	// 	return view('review', [
+	// 		'id' => $id,
+	// 		'dvds' => $dvds,
+	// 		'review_ratings' => $review_ratings,
+	// 		'reviews' => $reviews
+	// 	]);
+	// }
 
 	public function createReview(Request $request){
 
